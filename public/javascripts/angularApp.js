@@ -184,7 +184,7 @@ app.controller('PostsCtrl', [
 				posts.deleteComment(post, comment);
 				$window.location.reload();
 			} else {
-				alert('Nur eigene Kommentar können gelöscht werden!');
+				alert('You can only delete your own comments!');
 			}
 		});
 	};
