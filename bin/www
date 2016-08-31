@@ -10,9 +10,9 @@ var debug = require('debug')('LikeReddit:server');
 var http = require('http');
 var https = require('https');
 var options = {
-     key: fs.readFileSync('privkey.pem'),
-     cert: fs.readFileSync('fullchain.pem'),
-     ca: fs.readFileSync('chain.pem')
+     key: fs.readFileSync('/home/sample-app/bin/privkey.pem'),
+     cert: fs.readFileSync('/home/sample-app/bin/fullchain.pem'),
+     ca: fs.readFileSync('/home/sample-app/bin/chain.pem')
 };
 /**
  * Get ports from environment and store in Express.

@@ -146,11 +146,15 @@ app.controller('PostsCtrl', [
 	'post',
 	function($http, $scope, $window, posts, post){
 		$scope.post = post;
+		$http.get('/getUser').success(function(data){
+	  		$scope.user = data.user;
+  		});
 		$scope.addComment = function(){
   			if($scope.body === '') { return; }
   			var user;
   			$http.get('/getUser').success(function(data){
       			  user = data.user;
+      			  $scope.user = data.user
 			  var comment = {body: $scope.body,
 					 author: user,
 					 upvotes: 0, 
@@ -184,7 +188,7 @@ app.controller('PostsCtrl', [
 				posts.deleteComment(post, comment);
 				$window.location.reload();
 			} else {
-				alert('Nur eigene Kommentar können gelöscht werden!');
+				alert('You can only delete your own comments!');
 			}
 		});
 	};
